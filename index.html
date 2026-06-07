@@ -9,90 +9,22 @@
 <meta name="theme-color" content="#000000"/>
 <title>Garage</title>
 <style>
-:root{
-  --bg:#f2f2f7;
-  --bg2:#ffffff;
-  --bg3:#f2f2f7;
-  --grouped:#ffffff;
-  --separator:rgba(60,60,67,.18);
-  --label:#000000;
-  --label2:rgba(60,60,67,.6);
-  --label3:rgba(60,60,67,.3);
-  --blue:#007aff;
-  --red:#ff3b30;
-  --green:#34c759;
-  --orange:#ff9500;
-  --yellow:#ffcc00;
-  --fill:rgba(120,120,128,.2);
-  --fill2:rgba(120,120,128,.16);
-  --radius:10px;
-  --radius-lg:16px;
-  --radius-xl:20px;
-  --safe-top:env(safe-area-inset-top,44px);
-  --safe-bot:env(safe-area-inset-bottom,34px);
-}
+:root{--bg:#f2f2f7;--bg2:#ffffff;--bg3:#f2f2f7;--grouped:#ffffff;--separator:rgba(60,60,67,.18);--label:#000000;--label2:rgba(60,60,67,.6);--label3:rgba(60,60,67,.3);--blue:#007aff;--red:#ff3b30;--green:#34c759;--orange:#ff9500;--yellow:#ffcc00;--fill:rgba(120,120,128,.2);--fill2:rgba(120,120,128,.16);--radius:10px;--radius-lg:16px;--radius-xl:20px;--safe-top:env(safe-area-inset-top,44px);--safe-bot:env(safe-area-inset-bottom,34px);}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;-webkit-font-smoothing:antialiased}
 body{font-family:-apple-system,sans-serif;background:var(--bg);color:var(--label);min-height:100vh;overflow-x:hidden;font-size:17px}
 .screen{display:none;flex-direction:column;min-height:100vh;min-height:100dvh}
 .screen.on{display:flex}
-
-/* ── NAV BAR ── */
-.navbar{
-  background:rgba(242,242,247,.85);
-  -webkit-backdrop-filter:blur(20px);
-  backdrop-filter:blur(20px);
-  border-bottom:0.5px solid var(--separator);
-  padding-top:calc(var(--safe-top) + 4px);
-  padding-bottom:8px;
-  display:flex;align-items:center;justify-content:space-between;
-  padding-left:16px;padding-right:16px;
-  position:sticky;top:0;z-index:100;flex-shrink:0;
-}
+.navbar{background:rgba(242,242,247,.85);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-bottom:0.5px solid var(--separator);padding-top:calc(var(--safe-top) + 4px);padding-bottom:8px;display:flex;align-items:center;justify-content:space-between;padding-left:16px;padding-right:16px;position:sticky;top:0;z-index:100;flex-shrink:0;}
 .navbar-title{font-size:17px;font-weight:600;color:var(--label);text-align:center;flex:1}
-.navbar-large{
-  background:rgba(242,242,247,.85);
-  -webkit-backdrop-filter:blur(20px);
-  backdrop-filter:blur(20px);
-  padding-top:calc(var(--safe-top) + 4px);
-  padding-left:16px;padding-right:16px;padding-bottom:8px;
-  position:sticky;top:0;z-index:100;flex-shrink:0;
-  border-bottom:0.5px solid var(--separator);
-}
+.navbar-large{background:rgba(242,242,247,.85);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);padding-top:calc(var(--safe-top) + 4px);padding-left:16px;padding-right:16px;padding-bottom:8px;position:sticky;top:0;z-index:100;flex-shrink:0;border-bottom:0.5px solid var(--separator);}
 .navbar-large-top{display:flex;justify-content:space-between;align-items:center;min-height:44px}
 .navbar-large-title{font-size:34px;font-weight:700;color:var(--label);margin-top:4px;letter-spacing:.3px}
 .nav-btn{background:none;border:none;color:var(--blue);font-size:17px;cursor:pointer;padding:4px 0;font-family:inherit;display:flex;align-items:center;gap:4px;-webkit-user-select:none}
 .nav-btn-back::before{content:'‹';font-size:22px;font-weight:400;margin-right:2px}
 .nav-icon-btn{background:var(--fill);border:none;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px}
 .nav-icon-btn.blue{background:var(--blue);color:#fff}
-
-/* ── SCROLL ── */
 .scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:calc(var(--safe-bot) + 80px)}
-
-/* ── GROUPED LIST ── */
-.section{margin:28px 16px 0}
-.section-header{font-size:13px;font-weight:400;color:var(--label2);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;padding-left:4px}
-.list{background:var(--bg2);border-radius:var(--radius-lg);overflow:hidden}
-.list-row{display:flex;align-items:center;padding:12px 16px;gap:12px;position:relative;cursor:pointer;min-height:44px}
-.list-row:not(:last-child)::after{content:'';position:absolute;bottom:0;left:16px;right:0;height:0.5px;background:var(--separator)}
-.list-row:active{background:var(--fill2)}
-.row-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
-.row-body{flex:1;min-width:0}
-.row-title{font-size:17px;color:var(--label);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.row-sub{font-size:13px;color:var(--label2);margin-top:1px}
-.row-right{display:flex;align-items:center;gap:6px;flex-shrink:0}
-.row-value{font-size:17px;color:var(--label2)}
-.chevron{color:var(--label3);font-size:14px;font-weight:600}
-.row-badge{background:var(--red);color:#fff;border-radius:10px;padding:1px 8px;font-size:12px;font-weight:600;min-width:22px;text-align:center}
-
-/* ── CARD VEICOLO ── */
-.vcard{
-  margin:16px 16px 0;
-  background:var(--bg2);
-  border-radius:var(--radius-xl);
-  overflow:hidden;
-  cursor:pointer;
-  box-shadow:0 1px 3px rgba(0,0,0,.08);
-}
+.vcard{margin:16px 16px 0;background:var(--bg2);border-radius:var(--radius-xl);overflow:hidden;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.08);}
 .vcard:active{opacity:.7;transition:opacity .1s}
 .vcard-header{height:90px;display:flex;align-items:flex-end;padding:14px 16px 12px;position:relative}
 .vcard-header-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 30%,rgba(0,0,0,.35))}
@@ -101,16 +33,10 @@ body{font-family:-apple-system,sans-serif;background:var(--bg);color:var(--label
 .vcard-body{padding:12px 16px 14px;display:flex;gap:8px;flex-wrap:wrap}
 .vcard-chip{background:var(--fill2);border-radius:8px;padding:5px 10px;font-size:13px;color:var(--label);font-weight:500}
 .vcard-urgent{background:rgba(255,59,48,.12);border-radius:8px;padding:5px 10px;font-size:13px;color:var(--red);font-weight:600}
-
-/* ── SCADENZA CARD ── */
-.scard{
-  margin:0 16px 12px;
-  background:var(--bg2);
-  border-radius:var(--radius-lg);
-  padding:14px 16px;
-  display:flex;align-items:center;gap:12px;
-  box-shadow:0 1px 3px rgba(0,0,0,.06);
-}
+.segment{background:rgba(120,120,128,.12);border-radius:9px;padding:2px;display:flex;margin:12px 16px 16px;flex-shrink:0}
+.seg-btn{flex:1;border:none;background:none;border-radius:7px;padding:6px 0;font-size:13px;font-weight:600;color:var(--label2);cursor:pointer;font-family:inherit;transition:all .2s}
+.seg-btn.on{background:#fff;color:var(--label);box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.scard{margin:0 16px 12px;background:var(--bg2);border-radius:var(--radius-lg);padding:14px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 1px 3px rgba(0,0,0,.06);}
 .scard-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
 .scard-body{flex:1;min-width:0}
 .scard-title{font-size:17px;font-weight:600;color:var(--label)}
@@ -119,32 +45,20 @@ body{font-family:-apple-system,sans-serif;background:var(--bg);color:var(--label
 .scard-right{text-align:right;flex-shrink:0}
 .scard-days{font-size:15px;font-weight:700}
 .scard-actions{display:flex;gap:6px;margin-top:6px;justify-content:flex-end}
-
-/* ── MANUTENZIONE CARD ── */
-.mcard{
-  margin:0 16px 12px;
-  background:var(--bg2);
-  border-radius:var(--radius-lg);
-  padding:14px 16px;
-  box-shadow:0 1px 3px rgba(0,0,0,.06);
-}
+.mcard{margin:0 16px 12px;background:var(--bg2);border-radius:var(--radius-lg);padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.06);}
 .mcard-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
 .mcard-title{font-size:17px;font-weight:600;color:var(--label)}
 .mcard-sub{font-size:13px;color:var(--label2);margin-top:3px}
 .mcard-costo{display:inline-flex;align-items:center;background:rgba(52,199,89,.12);border-radius:8px;padding:3px 10px;font-size:13px;font-weight:600;color:var(--green);margin-top:8px}
 .mcard-note{background:var(--bg);border-radius:10px;padding:10px 12px;font-size:14px;color:var(--label);margin-top:10px;line-height:1.5;white-space:pre-wrap;word-break:break-word}
 .mcard-actions{display:flex;gap:6px;margin-top:4px}
-
-/* ── ICON BUTTONS ── */
 .icon-action{background:var(--fill2);border:none;border-radius:8px;padding:6px 10px;font-size:14px;cursor:pointer;color:var(--label);font-family:inherit}
 .icon-action.red{background:rgba(255,59,48,.1);color:var(--red)}
-
-/* ── SEGMENT CONTROL ── */
-.segment{background:rgba(120,120,128,.12);border-radius:9px;padding:2px;display:flex;margin:12px 16px 16px;flex-shrink:0}
-.seg-btn{flex:1;border:none;background:none;border-radius:7px;padding:6px 0;font-size:13px;font-weight:600;color:var(--label2);cursor:pointer;font-family:inherit;transition:all .2s}
-.seg-btn.on{background:#fff;color:var(--label);box-shadow:0 1px 3px rgba(0,0,0,.15)}
-
-/* ── FORM ── */
+.fab{position:fixed;bottom:calc(var(--safe-bot) + 16px);right:20px;width:56px;height:56px;border-radius:50%;background:var(--blue);color:#fff;font-size:28px;border:none;cursor:pointer;box-shadow:0 4px 16px rgba(0,122,255,.4);display:flex;align-items:center;justify-content:center;z-index:50;}
+.add-row{display:flex;align-items:center;padding:12px 16px;gap:12px;background:var(--bg2);border-radius:var(--radius-lg);margin:12px 16px 0;cursor:pointer}
+.add-row:active{opacity:.6}
+.add-row-icon{width:32px;height:32px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;font-weight:300;flex-shrink:0}
+.add-row-label{color:var(--blue);font-size:17px}
 .form-section{margin:28px 16px 0}
 .form-section-label{font-size:13px;color:var(--label2);text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px;padding-left:4px}
 .form-group{background:var(--bg2);border-radius:var(--radius-lg);overflow:hidden}
@@ -160,61 +74,19 @@ select.form-input{-webkit-appearance:none;cursor:pointer}
 .form-textarea::placeholder{color:var(--label3)}
 .color-preview{width:28px;height:28px;border-radius:50%;border:2px solid var(--separator);cursor:pointer;flex-shrink:0}
 input[type=color]{opacity:0;position:absolute;width:0;height:0}
-
-/* ── FAB / ADD BTN ── */
-.fab{
-  position:fixed;bottom:calc(var(--safe-bot) + 16px);right:20px;
-  width:56px;height:56px;border-radius:50%;
-  background:var(--blue);color:#fff;font-size:28px;border:none;cursor:pointer;
-  box-shadow:0 4px 16px rgba(0,122,255,.4);
-  display:flex;align-items:center;justify-content:center;z-index:50;
-}
-.add-row{display:flex;align-items:center;padding:12px 16px;gap:12px;background:var(--bg2);border-radius:var(--radius-lg);margin:12px 16px 0;cursor:pointer}
-.add-row:active{opacity:.6}
-.add-row-icon{width:32px;height:32px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;font-weight:300;flex-shrink:0}
-.add-row-label{color:var(--blue);font-size:17px}
-
-/* ── BOTTOM BAR ── */
-.bottombar{
-  position:fixed;bottom:0;left:0;right:0;max-width:430px;margin:0 auto;
-  background:rgba(242,242,247,.92);
-  -webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);
-  border-top:.5px solid var(--separator);
-  display:flex;gap:8px;padding:10px 16px calc(var(--safe-bot) + 10px);
-  z-index:50;
-}
-.bar-btn{flex:1;padding:10px;border:none;border-radius:10px;font-size:14px;font-weight:500;cursor:pointer;font-family:inherit;background:var(--fill2);color:var(--label2)}
-.bar-btn.primary{background:rgba(0,122,255,.12);color:var(--blue)}
-
-/* ── EMPTY ── */
 .empty{text-align:center;padding:60px 24px;color:var(--label2);font-size:15px;line-height:1.6}
 .empty-icon{font-size:48px;margin-bottom:12px}
 .empty-title{font-size:17px;font-weight:600;color:var(--label);margin-bottom:6px}
-
-/* ── TOAST ── */
-.toast{
-  position:fixed;top:calc(var(--safe-top) + 54px);left:50%;transform:translateX(-50%);
-  background:rgba(50,50,50,.92);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
-  color:#fff;border-radius:14px;padding:10px 20px;font-size:15px;font-weight:500;
-  z-index:999;white-space:nowrap;box-shadow:0 4px 20px rgba(0,0,0,.25);
-  transition:opacity .3s;pointer-events:none;
-}
-
-/* ── OVERLAY ── */
+.toast{position:fixed;top:calc(var(--safe-top) + 54px);left:50%;transform:translateX(-50%);background:rgba(50,50,50,.92);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);color:#fff;border-radius:14px;padding:10px 20px;font-size:15px;font-weight:500;z-index:999;white-space:nowrap;box-shadow:0 4px 20px rgba(0,0,0,.25);transition:opacity .3s;pointer-events:none;}
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:flex-end;justify-content:center;z-index:200;padding-bottom:0}
 .action-sheet{background:var(--bg);border-radius:var(--radius-xl) var(--radius-xl) 0 0;width:100%;max-width:430px;padding:8px 16px calc(var(--safe-bot) + 8px);animation:slideup .25s ease}
 @keyframes slideup{from{transform:translateY(100%)}to{transform:translateY(0)}}
-.sheet-title{text-align:center;font-size:13px;color:var(--label2);padding:6px 0 12px;font-weight:500}
 .sheet-msg{text-align:center;font-size:15px;color:var(--label);padding:0 0 16px;line-height:1.4}
 .sheet-btn{width:100%;padding:16px;border:none;border-radius:var(--radius-lg);font-size:17px;cursor:pointer;font-family:inherit;margin-bottom:8px;font-weight:400;background:var(--bg2);color:var(--label)}
 .sheet-btn.red{color:var(--red);font-weight:600}
 .sheet-btn.cancel{background:var(--bg2);color:var(--blue);font-weight:600;margin-top:4px}
 .sheet-btn:active{opacity:.7}
-
-/* ── INSET FIRST SECTION ── */
 .first-section{margin-top:16px}
-
-/* ── DETAIL HERO ── */
 .det-hero{height:160px;position:relative;flex-shrink:0}
 .det-hero-bg{position:absolute;inset:0}
 .det-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.15),rgba(0,0,0,.5))}
@@ -223,12 +95,24 @@ input[type=color]{opacity:0;position:absolute;width:0;height:0}
 .det-hero-sub{color:rgba(255,255,255,.85);font-size:14px;margin-top:2px}
 .det-hero-chips{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
 .det-hero-chip{background:rgba(255,255,255,.2);border-radius:20px;padding:4px 12px;font-size:12px;color:#fff;font-weight:500;-webkit-backdrop-filter:blur(4px)}
+.loading{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;gap:16px}
+.spinner{width:32px;height:32px;border:3px solid var(--fill);border-top:3px solid var(--blue);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
 </style>
 </head>
 <body>
 
-<!-- ── GARAGE ───────────────────────────────────────────────────── -->
-<div id="s-garage" class="screen on">
+<!-- SPLASH -->
+<div id="s-splash" class="screen on">
+  <div class="loading">
+    <div style="font-size:56px">🏎️</div>
+    <div style="font-size:28px;font-weight:700">Garage</div>
+    <div class="spinner"></div>
+  </div>
+</div>
+
+<!-- GARAGE -->
+<div id="s-garage" class="screen">
   <div class="navbar-large">
     <div class="navbar-large-top">
       <div class="navbar-large-title">Garage</div>
@@ -236,14 +120,9 @@ input[type=color]{opacity:0;position:absolute;width:0;height:0}
     </div>
   </div>
   <div class="scroll" id="garage-list" style="padding-top:8px"></div>
-  <div class="bottombar">
-    <button class="bar-btn" onclick="esportaBackup()">📤 Esporta backup</button>
-    <button class="bar-btn primary" onclick="document.getElementById('imp-file').click()">📥 Importa</button>
-    <input type="file" id="imp-file" accept=".json" style="display:none" onchange="importaBackup(event)"/>
-  </div>
 </div>
 
-<!-- ── DETTAGLIO ─────────────────────────────────────────────────── -->
+<!-- DETTAGLIO -->
 <div id="s-det" class="screen">
   <div class="navbar">
     <button class="nav-btn nav-btn-back" onclick="go('garage')">Garage</button>
@@ -271,7 +150,7 @@ input[type=color]{opacity:0;position:absolute;width:0;height:0}
   </div>
 </div>
 
-<!-- ── FORM VEICOLO ──────────────────────────────────────────────── -->
+<!-- FORM VEICOLO -->
 <div id="s-fv" class="screen">
   <div class="navbar">
     <button class="nav-btn" id="fv-cancel">Annulla</button>
@@ -300,10 +179,10 @@ input[type=color]{opacity:0;position:absolute;width:0;height:0}
       <div class="form-group">
         <div class="form-row" onclick="document.getElementById('fv-colore-inp').click()" style="cursor:pointer">
           <span class="form-label">Colore card</span>
-          <div class="row-right">
+          <div style="display:flex;align-items:center;gap:8px">
             <div class="color-preview" id="fv-colore-prev"></div>
             <input type="color" id="fv-colore-inp" value="#007aff" onchange="aggiornaColore(this.value)"/>
-            <span class="chevron">›</span>
+            <span style="color:var(--label3);font-size:14px;font-weight:600">›</span>
           </div>
         </div>
       </div>
@@ -319,7 +198,7 @@ input[type=color]{opacity:0;position:absolute;width:0;height:0}
   </div>
 </div>
 
-<!-- ── FORM MANUTENZIONE ─────────────────────────────────────────── -->
+<!-- FORM MANUTENZIONE -->
 <div id="s-fm" class="screen">
   <div class="navbar">
     <button class="nav-btn" onclick="go('det')">Annulla</button>
@@ -353,7 +232,7 @@ input[type=color]{opacity:0;position:absolute;width:0;height:0}
   </div>
 </div>
 
-<!-- ── FORM SCADENZA ─────────────────────────────────────────────── -->
+<!-- FORM SCADENZA -->
 <div id="s-fs" class="screen">
   <div class="navbar">
     <button class="nav-btn" onclick="go('det')">Annulla</button>
@@ -380,7 +259,7 @@ input[type=color]{opacity:0;position:absolute;width:0;height:0}
   </div>
 </div>
 
-<!-- ── ACTION SHEET ──────────────────────────────────────────────── -->
+<!-- ACTION SHEET -->
 <div id="overlay" class="overlay" style="display:none" onclick="chiudiSheet()">
   <div class="action-sheet" onclick="event.stopPropagation()">
     <div class="sheet-msg" id="sheet-msg"></div>
@@ -389,47 +268,56 @@ input[type=color]{opacity:0;position:absolute;width:0;height:0}
   </div>
 </div>
 
-<!-- ── TOAST ─────────────────────────────────────────────────────── -->
+<!-- TOAST -->
 <div id="toast" class="toast" style="display:none"></div>
 
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js"></script>
+
 <script>
-// ── Storage ──────────────────────────────────────────────────────────────────
-const K={v:'g_v',s:'g_s',m:'g_m'};
-function carica(k,fb){try{const x=localStorage.getItem(k);return x?JSON.parse(x):fb;}catch{return fb;}}
-function salvaLS(k,d){try{localStorage.setItem(k,JSON.stringify(d));}catch{}}
+// Firebase config
+const firebaseConfig = {
+  apiKey: "AIzaSyDGTvc9A-2qOy1gnpv7SFJry7ZchXxo98Q",
+  authDomain: "garage-app-3cef3.firebaseapp.com",
+  databaseURL: "https://garage-app-3cef3-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "garage-app-3cef3",
+  storageBucket: "garage-app-3cef3.firebasestorage.app",
+  messagingSenderId: "487344096734",
+  appId: "1:487344096734:web:a9d7eea42b19b08b3c094f"
+};
 
-// ── Demo ─────────────────────────────────────────────────────────────────────
-const addG=n=>{const r=new Date();r.setDate(r.getDate()+n);return r.toISOString().split('T')[0];};
-const DEMO_V=[
-  {id:'v1',nome:'Golf Blu',marca:'Volkswagen',modello:'Golf 7',anno:2019,targa:'AB123CD',carb:'Diesel',km:87400,colore:'#1a56db',note:''},
-  {id:'v2',nome:'Panda Bianca',marca:'Fiat',modello:'Panda 4x4',anno:2017,targa:'EF456GH',carb:'Benzina',km:124800,colore:'#636366',note:'Auto della moglie'},
-];
-const DEMO_S=[
-  {id:'s1',vid:'v1',tipo:'Assicurazione',data:addG(18),note:'Zurich polizza n.12345'},
-  {id:'s2',vid:'v1',tipo:'Bollo',data:addG(72),note:'€ 180'},
-  {id:'s3',vid:'v1',tipo:'Revisione',data:addG(210),note:''},
-  {id:'s4',vid:'v2',tipo:'Assicurazione',data:addG(-5),note:'Da rinnovare!'},
-  {id:'s5',vid:'v2',tipo:'Bollo',data:addG(45),note:''},
-  {id:'s6',vid:'v2',tipo:'Revisione',data:addG(320),note:''},
-];
-const DEMO_M=[
-  {id:'m1',vid:'v1',data:'2024-11-15',tipo:'Tagliando',km:85000,officina:'AutoService Rossi',costo:320,note:'Olio 5W30 Full Synthetic, filtro olio, filtro aria, filtro abitacolo. Pastiglie freni ok. Prossimo tagliando a 95.000 km.'},
-  {id:'m2',vid:'v1',data:'2024-06-02',tipo:'Riparazione',km:81200,officina:'AutoService Rossi',costo:85,note:'Sostituzione lampadina faro anteriore sinistro. Xenon D3S originale VW.'},
-  {id:'m3',vid:'v2',data:'2024-12-20',tipo:'Tagliando',km:122000,officina:'Fiat Center Milano',costo:210,note:'Olio 5W40, filtro olio. Pastiglie posteriori al 20%, da sostituire entro 10.000 km.'},
-];
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+const dbRef = db.ref('garage');
 
-// ── Stato ────────────────────────────────────────────────────────────────────
-let veicoli,scadenze,manutenzioni;
+let veicoli=[],scadenze=[],manutenzioni=[];
 let curId=null,curTab='sca',editId=null;
+let fbInitDone=false;
 
-function inizializza(){
-  const saved=carica(K.v,null);
-  if(saved){veicoli=saved;scadenze=carica(K.s,[]);manutenzioni=carica(K.m,[]);}
-  else{veicoli=DEMO_V;scadenze=DEMO_S;manutenzioni=DEMO_M;salvaLS(K.v,veicoli);salvaLS(K.s,scadenze);salvaLS(K.m,manutenzioni);}
-  go('garage');
+// Carica da Firebase
+function caricaDaFirebase(){
+  dbRef.once('value',snap=>{
+    const d=snap.val();
+    if(d){
+      veicoli=d.veicoli||[];
+      scadenze=d.scadenze||[];
+      manutenzioni=d.manutenzioni||[];
+    }
+    fbInitDone=true;
+    go('garage');
+  },err=>{
+    console.error('Errore caricamento Firebase:',err);
+    go('garage');
+  });
 }
 
-// ── Utils ────────────────────────────────────────────────────────────────────
+// Salva su Firebase
+function salvaFirebase(){
+  if(!fbInitDone)return;
+  dbRef.set({veicoli,scadenze,manutenzioni}).catch(err=>console.error('Errore salvataggio:',err));
+}
+
 function uid(){return Math.random().toString(36).slice(2,10);}
 function fmt(d){if(!d)return'–';const[y,m,g]=d.split('-');return`${g}/${m}/${y}`;}
 function oggi(){return new Date(new Date().toDateString());}
@@ -443,49 +331,17 @@ function stato(g){
 }
 function esc(s){const d=document.createElement('div');d.textContent=s||'';return d.innerHTML;}
 function nl(n){return Number(n||0).toLocaleString('it');}
-function toast(msg){
-  const t=document.getElementById('toast');
-  t.textContent=msg;t.style.display='block';t.style.opacity='1';
-  setTimeout(()=>{t.style.opacity='0';setTimeout(()=>t.style.display='none',300);},2200);
-}
-function go(id){
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('on'));
-  document.getElementById('s-'+id).classList.add('on');
-  window.scrollTo(0,0);
-  if(id==='garage')renderGarage();
-  if(id==='det')renderDet();
-}
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';t.style.opacity='1';setTimeout(()=>{t.style.opacity='0';setTimeout(()=>t.style.display='none',300);},2200);}
+function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('on'));document.getElementById('s-'+id).classList.add('on');window.scrollTo(0,0);if(id==='garage')renderGarage();if(id==='det')renderDet();}
 
-// ── Garage ───────────────────────────────────────────────────────────────────
 function renderGarage(){
   const urg={};
   scadenze.forEach(s=>{const g=giorni(s.data);if(g!==null&&g<=30)urg[s.vid]=(urg[s.vid]||0)+1;});
   const el=document.getElementById('garage-list');
-  if(!veicoli.length){
-    el.innerHTML=`<div class="empty"><div class="empty-icon">🚗</div><div class="empty-title">Nessun veicolo</div><div>Tocca ＋ per aggiungere la tua prima auto</div></div>`;
-    return;
-  }
-  el.innerHTML=veicoli.map(v=>{
-    const u=urg[v.id]||0;
-    return`<div class="vcard" onclick="apriDet('${v.id}')">
-      <div class="vcard-header" style="background:${esc(v.colore||'#007aff')}">
-        <div class="vcard-header-overlay"></div>
-        <div style="position:relative;z-index:1;width:100%">
-          <div class="vcard-title">${esc(v.nome)}</div>
-          <div class="vcard-sub">${esc(v.marca)} ${esc(v.modello)} · ${esc(String(v.anno))}</div>
-        </div>
-      </div>
-      <div class="vcard-body">
-        <span class="vcard-chip">🏷️ ${esc(v.targa)}</span>
-        <span class="vcard-chip">⛽ ${esc(v.carb)}</span>
-        <span class="vcard-chip">📍 ${nl(v.km)} km</span>
-        ${u>0?`<span class="vcard-urgent">⚠️ ${u} scadenz${u===1?'a':'e'}</span>`:''}
-      </div>
-    </div>`;
-  }).join('');
+  if(!veicoli.length){el.innerHTML=`<div class="empty"><div class="empty-icon">🚗</div><div class="empty-title">Nessun veicolo</div><div>Tocca ＋ per aggiungerne uno</div></div>`;return;}
+  el.innerHTML=veicoli.map(v=>{const u=urg[v.id]||0;return`<div class="vcard" onclick="apriDet('${v.id}')"><div class="vcard-header" style="background:${esc(v.colore||'#007aff')}"><div class="vcard-header-overlay"></div><div style="position:relative;z-index:1;width:100%"><div class="vcard-title">${esc(v.nome)}</div><div class="vcard-sub">${esc(v.marca)} ${esc(v.modello)} · ${esc(String(v.anno))}</div></div></div><div class="vcard-body"><span class="vcard-chip">🏷️ ${esc(v.targa)}</span><span class="vcard-chip">⛽ ${esc(v.carb)}</span><span class="vcard-chip">📍 ${nl(v.km)} km</span>${u>0?`<span class="vcard-urgent">⚠️ ${u} scad.</span>`:''}</div></div>`;}).join('');
 }
 
-// ── Dettaglio ────────────────────────────────────────────────────────────────
 function apriDet(id){curId=id;curTab='sca';go('det');}
 function renderDet(){
   const v=veicoli.find(x=>x.id===curId);if(!v){go('garage');return;}
@@ -493,8 +349,7 @@ function renderDet(){
   document.getElementById('det-hero-bg').style.background=v.colore||'#007aff';
   document.getElementById('det-nome').textContent=v.nome;
   document.getElementById('det-sub').textContent=`${v.marca} ${v.modello} · ${v.anno} · ${v.targa}`;
-  document.getElementById('det-chips').innerHTML=
-    `<span class="det-hero-chip">📍 ${nl(v.km)} km</span><span class="det-hero-chip">⛽ ${esc(v.carb)}</span>${v.note?`<span class="det-hero-chip">📝 ${esc(v.note)}</span>`:''}`;
+  document.getElementById('det-chips').innerHTML=`<span class="det-hero-chip">📍 ${nl(v.km)} km</span><span class="det-hero-chip">⛽ ${esc(v.carb)}</span>${v.note?`<span class="det-hero-chip">📝 ${esc(v.note)}</span>`:''}`;
   document.getElementById('tab-sca').className='seg-btn'+(curTab==='sca'?' on':'');
   document.getElementById('tab-man').className='seg-btn'+(curTab==='man'?' on':'');
   curTab==='sca'?renderScadenze():renderManutenzioni();
@@ -505,24 +360,7 @@ function renderScadenze(){
   const mie=scadenze.filter(s=>s.vid===curId).sort((a,b)=>(giorni(a.data)??999)-(giorni(b.data)??999));
   let html='';
   if(!mie.length)html=`<div class="empty"><div class="empty-icon">📅</div><div class="empty-title">Nessuna scadenza</div><div>Aggiungi bollo, assicurazione o revisione</div></div>`;
-  html+=mie.map(s=>{
-    const st=stato(giorni(s.data));
-    return`<div class="scard" style="background:${st.bg}">
-      <div class="scard-dot" style="background:${st.dot}"></div>
-      <div class="scard-body">
-        <div class="scard-title">${esc(s.tipo)}</div>
-        <div class="scard-sub">Scade il ${fmt(s.data)}</div>
-        ${s.note?`<div class="scard-note">${esc(s.note)}</div>`:''}
-      </div>
-      <div class="scard-right">
-        <div class="scard-days" style="color:${st.col}">${st.lb}</div>
-        <div class="scard-actions">
-          <button class="icon-action" onclick="apriFormSca('${s.id}')">✏️</button>
-          <button class="icon-action red" onclick="mostraSheet('sca','${s.id}')">🗑️</button>
-        </div>
-      </div>
-    </div>`;
-  }).join('');
+  html+=mie.map(s=>{const st=stato(giorni(s.data));return`<div class="scard" style="background:${st.bg}"><div class="scard-dot" style="background:${st.dot}"></div><div class="scard-body"><div class="scard-title">${esc(s.tipo)}</div><div class="scard-sub">Scade il ${fmt(s.data)}</div>${s.note?`<div class="scard-note">${esc(s.note)}</div>`:''}</div><div class="scard-right"><div class="scard-days" style="color:${st.col}">${st.lb}</div><div class="scard-actions"><button class="icon-action" onclick="apriFormSca('${s.id}')">✏️</button><button class="icon-action red" onclick="mostraSheet('sca','${s.id}')">🗑️</button></div></div></div>`;}).join('');
   html+=`<div class="add-row" onclick="apriFormSca(null)"><div class="add-row-icon">＋</div><div class="add-row-label">Aggiungi scadenza</div></div>`;
   document.getElementById('det-content').innerHTML=html;
 }
@@ -531,26 +369,11 @@ function renderManutenzioni(){
   const mie=manutenzioni.filter(m=>m.vid===curId).sort((a,b)=>b.data.localeCompare(a.data));
   let html='';
   if(!mie.length)html=`<div class="empty"><div class="empty-icon">🔧</div><div class="empty-title">Nessun intervento</div><div>Registra tagliandi e riparazioni</div></div>`;
-  html+=mie.map(m=>`
-    <div class="mcard">
-      <div class="mcard-top">
-        <div style="flex:1">
-          <div class="mcard-title">${esc(m.tipo)}</div>
-          <div class="mcard-sub">${fmt(m.data)} · ${nl(m.km)} km${m.officina?' · '+esc(m.officina):''}</div>
-          ${m.costo>0?`<div class="mcard-costo">💶 € ${nl(m.costo)}</div>`:''}
-        </div>
-        <div class="mcard-actions">
-          <button class="icon-action" onclick="apriFormMan('${m.id}')">✏️</button>
-          <button class="icon-action red" onclick="mostraSheet('man','${m.id}')">🗑️</button>
-        </div>
-      </div>
-      ${m.note?`<div class="mcard-note">${esc(m.note)}</div>`:''}
-    </div>`).join('');
+  html+=mie.map(m=>`<div class="mcard"><div class="mcard-top"><div style="flex:1"><div class="mcard-title">${esc(m.tipo)}</div><div class="mcard-sub">${fmt(m.data)} · ${nl(m.km)} km${m.officina?' · '+esc(m.officina):''}</div>${m.costo>0?`<div class="mcard-costo">💶 € ${nl(m.costo)}</div>`:''}</div><div class="mcard-actions"><button class="icon-action" onclick="apriFormMan('${m.id}')">✏️</button><button class="icon-action red" onclick="mostraSheet('man','${m.id}')">🗑️</button></div></div>${m.note?`<div class="mcard-note">${esc(m.note)}</div>`:''}</div>`).join('');
   html+=`<div class="add-row" onclick="apriFormMan(null)"><div class="add-row-icon">＋</div><div class="add-row-label">Registra intervento</div></div>`;
   document.getElementById('det-content').innerHTML=html;
 }
 
-// ── Form Veicolo ─────────────────────────────────────────────────────────────
 function apriFormVeicolo(id){
   editId=id;
   const v=id?veicoli.find(x=>x.id===id):null;
@@ -576,19 +399,12 @@ function salvaVeicolo(){
   const modello=document.getElementById('fv-modello').value.trim();
   const targa=document.getElementById('fv-targa').value.trim().toUpperCase();
   if(!nome||!marca||!modello||!targa){toast('⚠️ Compila i campi obbligatori');return;}
-  const d={nome,marca,modello,targa,
-    anno:Number(document.getElementById('fv-anno').value)||'',
-    carb:document.getElementById('fv-carb').value,
-    km:Number(document.getElementById('fv-km').value)||0,
-    colore:document.getElementById('fv-colore-inp').value,
-    note:document.getElementById('fv-note').value.trim()
-  };
+  const d={nome,marca,modello,targa,anno:Number(document.getElementById('fv-anno').value)||'',carb:document.getElementById('fv-carb').value,km:Number(document.getElementById('fv-km').value)||0,colore:document.getElementById('fv-colore-inp').value,note:document.getElementById('fv-note').value.trim()};
   if(editId){veicoli=veicoli.map(v=>v.id===editId?{...v,...d}:v);toast('Veicolo aggiornato');}
   else{const nv={id:uid(),...d};veicoli=[...veicoli,nv];curId=nv.id;toast('Veicolo aggiunto');}
-  salvaLS(K.v,veicoli);go('det');
+  salvaFirebase();go('det');
 }
 
-// ── Form Manutenzione ────────────────────────────────────────────────────────
 function apriFormMan(id){
   editId=id;
   const m=id?manutenzioni.find(x=>x.id===id):null;
@@ -604,18 +420,12 @@ function apriFormMan(id){
 function salvaManutenzione(){
   const data=document.getElementById('fm-data').value;
   if(!data){toast('⚠️ Inserisci la data');return;}
-  const d={data,tipo:document.getElementById('fm-tipo').value,
-    km:Number(document.getElementById('fm-km').value)||0,
-    officina:document.getElementById('fm-officina').value.trim(),
-    costo:Number(document.getElementById('fm-costo').value)||0,
-    note:document.getElementById('fm-note').value.trim()
-  };
+  const d={data,tipo:document.getElementById('fm-tipo').value,km:Number(document.getElementById('fm-km').value)||0,officina:document.getElementById('fm-officina').value.trim(),costo:Number(document.getElementById('fm-costo').value)||0,note:document.getElementById('fm-note').value.trim()};
   if(editId){manutenzioni=manutenzioni.map(m=>m.id===editId?{...m,...d}:m);toast('Intervento aggiornato');}
   else{manutenzioni=[...manutenzioni,{id:uid(),vid:curId,...d}];toast('Intervento salvato');}
-  salvaLS(K.m,manutenzioni);go('det');
+  salvaFirebase();go('det');
 }
 
-// ── Form Scadenza ────────────────────────────────────────────────────────────
 function apriFormSca(id){
   editId=id;
   const s=id?scadenze.find(x=>x.id===id):null;
@@ -631,61 +441,35 @@ function salvaScadenza(){
   const d={tipo:document.getElementById('fs-tipo').value,data,note:document.getElementById('fs-note').value.trim()};
   if(editId){scadenze=scadenze.map(s=>s.id===editId?{...s,...d}:s);toast('Scadenza aggiornata');}
   else{scadenze=[...scadenze,{id:uid(),vid:curId,...d}];toast('Scadenza aggiunta');}
-  salvaLS(K.s,scadenze);go('det');
+  salvaFirebase();go('det');
 }
 
-// ── Action Sheet ─────────────────────────────────────────────────────────────
 function mostraSheet(tipo,id){
-  const msgs={
-    veicolo:`Vuoi eliminare "${veicoli.find(v=>v.id===id)?.nome}"?\n\nVerranno eliminate anche tutte le manutenzioni e scadenze associate.`,
-    sca:'Eliminare questa scadenza?',man:'Eliminare questo intervento?'
-  };
+  const msgs={veicolo:`Vuoi eliminare "${veicoli.find(v=>v.id===id)?.nome}"?\n\nVerranno eliminate anche tutte le manutenzioni e scadenze associate.`,sca:'Eliminare questa scadenza?',man:'Eliminare questo intervento?'};
   document.getElementById('sheet-msg').textContent=msgs[tipo];
   document.getElementById('sheet-ok').onclick=()=>{esegui(tipo,id);chiudiSheet();};
   document.getElementById('overlay').style.display='flex';
 }
 function chiudiSheet(){document.getElementById('overlay').style.display='none';}
 function esegui(tipo,id){
-  if(tipo==='veicolo'){
-    veicoli=veicoli.filter(v=>v.id!==id);
-    scadenze=scadenze.filter(s=>s.vid!==id);
-    manutenzioni=manutenzioni.filter(m=>m.vid!==id);
-    salvaLS(K.v,veicoli);salvaLS(K.s,scadenze);salvaLS(K.m,manutenzioni);
-    toast('Veicolo eliminato');go('garage');
-  }else if(tipo==='sca'){
-    scadenze=scadenze.filter(s=>s.id!==id);salvaLS(K.s,scadenze);
-    toast('Scadenza eliminata');renderDet();
-  }else if(tipo==='man'){
-    manutenzioni=manutenzioni.filter(m=>m.id!==id);salvaLS(K.m,manutenzioni);
-    toast('Intervento eliminato');renderDet();
+  if(tipo==='veicolo'){veicoli=veicoli.filter(v=>v.id!==id);scadenze=scadenze.filter(s=>s.vid!==id);manutenzioni=manutenzioni.filter(m=>m.vid!==id);salvaFirebase();toast('Veicolo eliminato');go('garage');}
+  else if(tipo==='sca'){scadenze=scadenze.filter(s=>s.id!==id);salvaFirebase();toast('Scadenza eliminata');renderDet();}
+  else if(tipo==='man'){manutenzioni=manutenzioni.filter(m=>m.id!==id);salvaFirebase();toast('Intervento eliminato');renderDet();}
+}
+
+// Monitora cambiamenti Firebase in real-time
+dbRef.on('value',snap=>{
+  const d=snap.val();
+  if(d){
+    veicoli=d.veicoli||[];
+    scadenze=d.scadenze||[];
+    manutenzioni=d.manutenzioni||[];
+    if(curId&&curTab==='sca')renderScadenze();
+    if(curId&&curTab==='man')renderManutenzioni();
   }
-}
+});
 
-// ── Backup ───────────────────────────────────────────────────────────────────
-function esportaBackup(){
-  const blob=new Blob([JSON.stringify({veicoli,scadenze,manutenzioni,data:new Date().toISOString()},null,2)],{type:'application/json'});
-  const a=document.createElement('a');
-  a.href=URL.createObjectURL(blob);
-  a.download='garage_backup_'+new Date().toISOString().slice(0,10)+'.json';
-  a.click();toast('📤 Backup esportato');
-}
-function importaBackup(e){
-  const file=e.target.files[0];if(!file)return;
-  const r=new FileReader();
-  r.onload=ev=>{
-    try{
-      const d=JSON.parse(ev.target.result);
-      if(!d.veicoli||!d.scadenze||!d.manutenzioni)throw 0;
-      veicoli=d.veicoli;scadenze=d.scadenze;manutenzioni=d.manutenzioni;
-      salvaLS(K.v,veicoli);salvaLS(K.s,scadenze);salvaLS(K.m,manutenzioni);
-      toast('📥 Backup ripristinato');go('garage');
-    }catch{toast('⚠️ File non valido');}
-  };
-  r.readAsText(file);e.target.value='';
-}
-
-// ── Avvio ────────────────────────────────────────────────────────────────────
-inizializza();
+caricaDaFirebase();
 </script>
 </body>
 </html>
